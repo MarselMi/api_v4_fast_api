@@ -1,0 +1,34 @@
+[tool.poetry]
+name = "api-v4"
+packages = [
+    {include = "./api_v4"}
+]
+version = "0.1.0"
+description = ""
+authors = ["inbloom151 <inbloom151@yandex.ru>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = {extras = ["all"], version = "^0.109.2"}
+sqlalchemy = {extras = ["asyncio"], version = "^2.0.27"}
+alembic = "^1.13.1"
+pydantic = {extras = ["email"], version = "^2.6.1"}
+aiomysql = "^0.2.0"
+pytz = "^2024.1"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0.1"
+pytest-asyncio = "^0.23.5"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+pythonpath = [
+    "."
+]
+asyncio_mode="auto"

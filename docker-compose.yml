@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "80:80"
+    environment:
+      - DATABASE_URL=mysql://admin:ux5DdPxWIwer@mysql-db/spaff_db
+    depends_on:
+      - mysql-db
+
+  mysql-db:
+    image: mysql:latest
+    ports:
+      - "3307:3307"
+    environment:
+      MYSQL_ROOT_PASSWORD: ux5DdPxWIwer
+      MYSQL_DATABASE: spaff_db
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: ux5DdPxWIwer
